@@ -1,0 +1,21 @@
+.completed {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.not-completed {
+  color: green;
+  font-weight: bold;
+}
+
+.filter-btn-normal {
+  background-color: #e7e7e7;
+  color: black;
+  border: 1px black solid;
+}
+
+.filter-btn-active {
+  background-color: #008cba;
+  color: white;
+  border: 1px black solid;
+}
