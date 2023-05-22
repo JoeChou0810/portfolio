@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../Style/global.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import InputItem from './inputItem';
+import axios from 'axios';
 
 function Register() {
   const navigate = useNavigate();
@@ -15,10 +16,25 @@ function Register() {
   function handleChange(e) {
     setMember({ ...member, [e.target.name]: e.target.value });
   }
-  function handleSubmit(e) {
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    navigate('/');
-    console.log(member);
+    // if (member.password !== member.rePassword) {
+    //   //TODO: 後端記得檢查
+    //   alert('前後密碼不一致﹐請重新填寫');
+    //   return;
+    // }
+    try {
+      let response = await axios.post(
+        'http://localhost:3001/api/auth/register',
+        member
+      );
+      console.log(response.data);
+      alert('註冊成功!!');
+      navigate('/login');
+    } catch (e) {
+      alert(e.response.data.errors[0]['msg']);
+    }
   }
 
   return (
@@ -55,7 +71,10 @@ function Register() {
           </div>
           <div className="d-flex justify-content-center py-1 text-center">
             <h6 className="text-success fw-bold my-auto mx-1 ">已經是會員?</h6>
-            <Link to="/" className="fw-bold text-primary text-decoration-none">
+            <Link
+              to="/login"
+              className="fw-bold text-primary text-decoration-none"
+            >
               點此登入
             </Link>
           </div>
