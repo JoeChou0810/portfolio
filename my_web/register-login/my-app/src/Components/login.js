@@ -20,7 +20,10 @@ function Login() {
     try {
       let response = await axios.post(
         'http://localhost:3001/api/auth/login',
-        member
+        member,
+        {
+          withCredentials: true,
+        }
       );
       console.log(response.data);
       alert('登入成功!!');

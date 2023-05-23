@@ -86,12 +86,20 @@ router.post('/login', async (req, res) => {
         ],
       });
     }
-
     // 帳號存在且密碼正確
-    res.json({
-      msg: 'login ok',
+    // 設定要寫進 session 的內容
+    let retMember = {
+      id: member.id,
       account: member.account,
       email: member.email,
+    };
+
+    // 寫入 session
+    req.session.member = retMember;
+
+    res.json({
+      msg: 'login ok',
+      member: retMember,
     });
   } catch (err) {
     console.log('falied', err);
