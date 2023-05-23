@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import '../Style/global.scss';
+import axios from 'axios';
 import InputItem from './inputItem';
+import '../Style/global.scss';
 
 function Login() {
+  const navigate = useNavigate();
   const [member, setMember] = useState({
     account: '',
     password: '',
@@ -16,23 +17,18 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let res = await axios.post('http://localhost:3001/api/auth/login', member);
-    console.log(res.data);
+    try {
+      let response = await axios.post(
+        'http://localhost:3001/api/auth/login',
+        member
+      );
+      console.log(response.data);
+      alert('登入成功!!');
+      // navigate('/');
+    } catch (e) {
+      alert(e.response.data.errors[0]['msg']);
+    }
   }
-
-  // useEffect(() => {
-  //   // 第二個參數為空陣列的時候 只會在 component 初始化時跑一次
-  //   // 通常會把去跟後端要資料的動作寫在這裡
-
-  //   //TODO: 解決閉包問題
-  //   console.log('get userData.');
-  //   async function getUser() {
-  //     let res = await axios.get('http://localhost:3001/api/user');
-  //     setUser(res.data);
-  //   }
-  //   console.log(user);
-  //   getUser();
-  // }, []);
 
   return (
     <>

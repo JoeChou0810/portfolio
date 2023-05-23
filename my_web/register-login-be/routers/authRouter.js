@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../utils/db');
-const { body, validationResult } = require('express-validator');
+const { body, validationResult, param } = require('express-validator');
 const argon2 = require('argon2');
 
 // register
@@ -53,5 +53,49 @@ router.post('/register', registerRules, async (req, res) => {
     res.json('驗證失敗');
   }
 });
+router.post('/login', async (req, res) => {
+  try {
+    // 資料驗證
+    let [members] = await pool.execute('SELECT * FROM user WHERE account=?', [
+      req.body.account,
+    ]);
+    // 帳號是否註冊過
+    if (members.length === 0) {
+      // 不存在回覆401
+      return res.status(401).json({
+        errors: [
+          {
+            msg: '尚未註冊過的帳號!!',
+            param: 'account',
+          },
+        ],
+      });
+    }
+    console.log(members);
+    // 如果存在，比對密碼
+    let member = members[0]; // get hashed PWD
+    let result = await argon2.verify(member.password, req.body.password);
+    if (result === false) {
+      // 密碼錯誤回覆前端401, early return
+      return res.status(401).json({
+        errors: [
+          {
+            msg: '帳號或密碼錯誤!!',
+            param: 'password',
+          },
+        ],
+      });
+    }
 
+    // 帳號存在且密碼正確
+    res.json({
+      msg: 'login ok',
+      account: member.account,
+      email: member.email,
+    });
+  } catch (err) {
+    console.log('falied', err);
+    res.json('登入失敗');
+  }
+});
 module.exports = router;

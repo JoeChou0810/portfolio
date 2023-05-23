@@ -19,7 +19,7 @@ app.use('/api/auth', authRouter);
 // 404
 app.use((req, res) => {
   console.log('Here is 404');
-  res.send('404 no found');
+  res.status(404).send('404 no found');
 });
 
 app.listen(3001, () => {
