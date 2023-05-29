@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../utils/db');
-const { body, validationResult, param } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 const argon2 = require('argon2');
 
 // register
@@ -13,7 +13,7 @@ const registerRules = [
       return value === req.body.password;
     })
     .withMessage('前後密碼不符合'),
-  body('email').isEmail().withMessage('請輸入正確格式'),
+  body('email').isEmail().withMessage('請輸入正確的email格式'),
 ];
 
 router.post('/register', registerRules, async (req, res) => {
@@ -98,12 +98,21 @@ router.post('/login', async (req, res) => {
     req.session.member = retMember;
 
     res.json({
-      msg: 'login ok',
+      msg: '登入成功!!',
       member: retMember,
     });
   } catch (err) {
     console.log('falied', err);
-    res.json('登入失敗');
+    res.json({
+      msg: '登入失敗!!',
+    });
   }
 });
+router.get('/logout', async (req, res) => {
+  req.session.member = null;
+  res.json({
+    msg: '登出成功!!',
+  });
+});
+
 module.exports = router;

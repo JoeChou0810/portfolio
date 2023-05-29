@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 import axios from 'axios';
 import InputItem from './inputItem';
 import '../Style/global.scss';
 
 function Login() {
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
   const navigate = useNavigate();
   const [member, setMember] = useState({
     account: '',
@@ -25,11 +27,11 @@ function Login() {
           withCredentials: true,
         }
       );
-      console.log(response.data);
-      alert('登入成功!!');
-      // navigate('/');
-    } catch (e) {
-      alert(e.response.data.errors[0]['msg']);
+
+      alert(response.data.msg);
+      navigate('/user');
+    } catch (err) {
+      alert(err.response.data.errors[0]['msg']);
     }
   }
 
@@ -41,9 +43,9 @@ function Login() {
         method=""
         onSubmit={handleSubmit}
       >
-        <div className="text-center">
-          <h2 className="text-success fw-bold">會員登入</h2>
-          <h5 className="mb-0 text-primary fw-bold">{InputItem[0].title}</h5>
+        <div className="text-center mt-3 mb-0">
+          <h2 className="text-primary-300 fw-bold">會員登入</h2>
+          <h5 className="mt-2 mb-0 text-info fw-bold">{InputItem[0].title}</h5>
           <input
             className="my-1"
             type={InputItem[0].type}
@@ -55,7 +57,8 @@ function Login() {
             onChange={handleChange}
           />
           <br />
-          <h5 className="mb-0 text-primary fw-bold">{InputItem[1].title}</h5>
+
+          <h5 className="mt-2 mb-0 text-info fw-bold">{InputItem[1].title}</h5>
           <input
             className="my-1"
             type={InputItem[1].type}
@@ -68,15 +71,18 @@ function Login() {
           />
           <br />
           <div className="pt-2 text-center">
-            <button className="rounded bg-warning fw-bold" type="submit">
+            <button
+              className="rounded btn btn-primary-300 fw-bold"
+              type="submit"
+            >
               登入
             </button>
           </div>
-          <div className="d-flex justify-content-center py-1 text-center">
+          <div className="d-flex justify-content-center py-1  text-center">
             <h6 className="text-danger fw-bold my-auto mx-1">還不是會員?</h6>
             <Link
               to="/register"
-              className="fw-bold text-success  text-decoration-none"
+              className="fw-bold text-primary-300  text-decoration-none"
             >
               點我註冊
             </Link>

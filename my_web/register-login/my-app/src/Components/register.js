@@ -45,11 +45,11 @@ function Register() {
         onSubmit={handleSubmit}
       >
         <div className="text-center">
-          <h2 className="text-success fw-bold">會員註冊</h2>
+          <h2 className="text-primary-300 fw-bold mt-3 mb-0">會員註冊</h2>
           {InputItem.map((it, i) => {
             return (
               <div key={i} className="">
-                <h5 className="mb-0 text-primary fw-bold">{it.title}</h5>
+                <h5 className="mt-2 mb-0 text-info fw-bold">{it.title}</h5>
                 <input
                   className="my-1"
                   type={it.type}
@@ -64,15 +64,17 @@ function Register() {
             );
           })}
           <div className="pt-2 text-center">
-            <button className="rounded bg-warning fw-bold" type="submit">
+            <button className="btn btn-info rounded fw-bold" type="submit">
               註冊
             </button>
           </div>
           <div className="d-flex justify-content-center py-1 text-center">
-            <h6 className="text-success fw-bold my-auto mx-1 ">已經是會員?</h6>
+            <h6 className="text-primary-300 fw-bold my-auto mx-1 ">
+              已經是會員?
+            </h6>
             <Link
               to="/login"
-              className="fw-bold text-primary text-decoration-none"
+              className="fw-bold text-info text-decoration-none"
             >
               點此登入
             </Link>

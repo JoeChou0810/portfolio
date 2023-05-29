@@ -39,6 +39,9 @@ app.get('/', (req, res) => {
 const authRouter = require('./routers/authRouter');
 app.use('/api/auth', authRouter);
 
+const memberRouter = require('./routers/memberRouter');
+app.use('/api/members', memberRouter);
+
 // 404
 app.use((req, res) => {
   console.log('Here is 404');
