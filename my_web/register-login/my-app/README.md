@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# my_web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 網頁預覽
 
-## Available Scripts
+<img decoding="async" src="public/index.png" width="100%">
 
-In the project directory, you can run:
+> 此專案必須配合資料庫以及後端專案，並在本地端(localhost)才能執行。
+> 後端專案連結:
+> https://github.com/JoeChou0810/portfolio/tree/main/my_web/register-login-be
 
-### `npm start`
+## 安裝專案
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+使用版本
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+node v18.12.1
+```
 
-### `npm test`
+XAMPP Windows 7.4.30-1
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.4.30/
 
-### `npm run build`
+使用 XAMPP 建立網頁伺服器，並到 phpMyAdmin 建立使用者帳號，並新增資料庫，匯入 sql 檔。(後端專案目錄提供)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> 帳號密碼請依據創建內容填寫進.env 檔，新增的資料庫名稱請取名為 my_web
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+分別在前、後端的終端機安裝 modules
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm install
+```
 
-### `npm run eject`
+在後端終端機安裝 nodemon
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+npm install nodemon
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 環境變數
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+請參考 .env.example 的內容，並在專案後端目錄新增 .env 檔並輸入環境變數。
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> 帳號密碼請依據在 phpMyAdmin 中創建的填入
 
-## Learn More
+```
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=
+DB_PWD=
+DB_NAME=my_web
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+SESSION_SCRECT=
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 啟動方式
 
-### Code Splitting
+> 啟動前請先確認 node 版本號至少為**v18.12.1 或以上版本**。
+> 前端頁面會在 **localhost:3000** 執行，後端可以在 **3001 查看 api 回覆內容**。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+前端指令
 
-### Analyzing the Bundle Size
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+> 請確認已將目錄 cd 至 my-app。
 
-### Making a Progressive Web App
+後端指令
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+npm run dev
+```
 
-### Advanced Configuration
+> 請事先確認是否確實安裝 nodemon。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 登入會員
 
-### Deployment
+使用預設帳戶即可登入會員，或至註冊頁面註冊帳戶。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+account: guest01
+password: 12345
+```
 
-### `npm run build` fails to minify
+## 專案使用技術
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**前端**
+
+- ReactJS
+- Bootstrap5
+- Sass
+
+**後端**
+
+- Node.js
+- express
+- MySQL
+
+**套件**
+
+- axios
+- eslint
+- prettier
+- font-awesome
+- react-router
