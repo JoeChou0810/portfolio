@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import axios from 'axios';
-import InputItem from './inputItem';
+import InputItem from './Items/inputItem';
 import '../Style/global.scss';
 
 function Login() {
@@ -38,13 +38,13 @@ function Login() {
   return (
     <>
       <form
-        className="container form-control d-flex justify-content-center mt-5"
+        className="container d-flex justify-content-center"
         action=""
         method=""
         onSubmit={handleSubmit}
       >
-        <div className="text-center mt-3 mb-0">
-          <h2 className="text-primary-300 fw-bold">會員登入</h2>
+        <div className="form-control text-center">
+          <h2 className="text-primary-300 fw-bold mt-3 mb-0">會員登入</h2>
           <h5 className="mt-2 mb-0 text-info fw-bold">{InputItem[0].title}</h5>
           <input
             className="my-1"

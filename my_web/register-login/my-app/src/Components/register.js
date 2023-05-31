@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import InputItem from './inputItem';
+import InputItem from './Items/inputItem';
 import '../Style/global.scss';
 
 function Register() {
@@ -39,12 +39,12 @@ function Register() {
   return (
     <>
       <form
-        className="container form-control d-flex justify-content-center mt-5"
+        className="container d-flex justify-content-center"
         action=""
         method=""
         onSubmit={handleSubmit}
       >
-        <div className="text-center">
+        <div className="form-control text-center">
           <h2 className="text-primary-300 fw-bold mt-3 mb-0">會員註冊</h2>
           {InputItem.map((it, i) => {
             return (

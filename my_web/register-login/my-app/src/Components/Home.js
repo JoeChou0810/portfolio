@@ -2,7 +2,7 @@ import React from 'react';
 
 function Home() {
   return (
-    <div className="container mt-1">
+    <div className="container">
       <div className="form-control mt-1">
         <h2 className="text-info-dark fw-bold pt-2">這裡是 Joe 的專案首頁</h2>
         <h3 className="text-info">Hi, Guest. My name is Joe.</h3>

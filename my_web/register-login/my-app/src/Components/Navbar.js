@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import axios from 'axios';
 
-import BarItem from './barItem';
+import BarItem from './Items/barItem';
 import '../Style/global.scss';
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const { userInfo, setUserInfo, isLoggedIn, setIsLoggedIn } = useAuth();
   return (
-    <nav className="bg-info d-flex justify-content-center py-3">
+    <nav className="navSty bg-info">
       <div className="fs-4 fw-bold">
         {BarItem.map((it, i) => {
           return (

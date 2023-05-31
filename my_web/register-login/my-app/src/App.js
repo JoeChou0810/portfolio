@@ -4,6 +4,7 @@ import Login from './Components/Login';
 import User from './Components/User';
 import Register from './Components/Register';
 import NotFound from './Components/NotFound';
+import Footer from './Components/Footer';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -42,6 +43,7 @@ function App() {
             <Route path="/user" element={<User />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </AuthContext.Provider>
     </>

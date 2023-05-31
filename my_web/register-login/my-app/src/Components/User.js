@@ -24,7 +24,7 @@ function User() {
   }, [isLoggedIn]);
 
   return (
-    <div className="container mt-1">
+    <div className="container">
       <div className={isLoggedIn ? 'd-none' : 'form-control mt-1'}>
         <h2 className={isLoggedIn ? 'd-none' : 'text-info-dark fw-bold pt-2'}>
           請先登入會員!!
@@ -33,7 +33,7 @@ function User() {
 
       {/* login */}
       <div className={isLoggedIn ? 'form-control mt-1' : 'd-none'}>
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center just">
           <h2 className="text-info-dark pt-2 fw-bold">歡迎來到 Joe 的專案,</h2>
           <h2 className="px-3">{userInfo.account}</h2>
         </div>
