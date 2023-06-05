@@ -37,12 +37,7 @@ function Login() {
 
   return (
     <>
-      <form
-        className="container d-flex justify-content-center"
-        action=""
-        method=""
-        onSubmit={handleSubmit}
-      >
+      <form className="container" action="" method="" onSubmit={handleSubmit}>
         <div className="form-control text-center">
           <h2 className="text-primary-300 fw-bold mt-3 mb-0">會員登入</h2>
           <h5 className="mt-2 mb-0 text-info fw-bold">{InputItem[0].title}</h5>

@@ -14,14 +14,6 @@ function Footer() {
     setSelected(i);
   };
 
-  if (
-    location.pathname === '/register' ||
-    location.pathname === '/login' ||
-    location.pathname === '/user'
-  ) {
-    return <></>;
-  }
-
   return (
     <div className="wrapper">
       <div className="accordion">
@@ -35,9 +27,9 @@ function Footer() {
                 }}
               >
                 <h2>{item.title}</h2>
-                <span>{selected == i ? '-' : '+'}</span>
+                <span>{selected === i ? '-' : '+'}</span>
               </div>
-              <div className={selected == i ? 'content show' : 'content'}>
+              <div className={selected === i ? 'content show' : 'content'}>
                 {item.content}
               </div>
             </div>

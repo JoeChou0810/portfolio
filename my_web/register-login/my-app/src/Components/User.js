@@ -33,8 +33,8 @@ function User() {
 
       {/* login */}
       <div className={isLoggedIn ? 'form-control mt-1' : 'd-none'}>
-        <div className="d-flex align-items-center just">
-          <h2 className="text-info-dark pt-2 fw-bold">歡迎來到 Joe 的專案,</h2>
+        <div className="d-flex align-items-center row">
+          <h2 className="text-info-dark pt-2 fw-bold">歡迎來到 Joe 的專案</h2>
           <h2 className="px-3">{userInfo.account}</h2>
         </div>
         <h2 className="text-primary-300">More about JoeChou.</h2>

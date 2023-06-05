@@ -38,12 +38,7 @@ function Register() {
 
   return (
     <>
-      <form
-        className="container d-flex justify-content-center"
-        action=""
-        method=""
-        onSubmit={handleSubmit}
-      >
+      <form className="container" action="" method="" onSubmit={handleSubmit}>
         <div className="form-control text-center">
           <h2 className="text-primary-300 fw-bold mt-3 mb-0">會員註冊</h2>
           {InputItem.map((it, i) => {

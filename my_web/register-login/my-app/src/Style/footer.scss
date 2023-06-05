@@ -1,22 +1,20 @@
 .wrapper {
-  // background: pink;
   @mixin desktop {
     @media (max-width: 768px) {
       @content;
     }
   }
   @mixin mobile {
-    @media (max-width: 400px) {
+    @media (max-width: 576px) {
       @content;
     }
   }
 
   display: none;
   @include mobile() {
-    margin-top: 20px;
-    display: flex;
-    height: auto;
     width: auto;
+    height: auto;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
