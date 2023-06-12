@@ -10,7 +10,13 @@
     }
   }
 
-  display: none;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ced4da;
+  border-top: 2px solid #00afcc;
   @include mobile() {
     width: auto;
     height: auto;
@@ -50,6 +56,23 @@
         max-height: 200px;
         transition: all 0.5s cubic-bezier(1, 0, 1, 0);
       }
+    }
+  }
+  .footer {
+    width: auto;
+    @include mobile() {
+      width: auto;
+    }
+    height: 260px;
+    text-align: center;
+    ul {
+      width: 260px;
+      margin: 10px 5px 0 5px;
+    }
+    ul li {
+      text-align: center;
+      padding: 15px 0 0 0;
+      border-bottom: 2px solid black;
     }
   }
 }

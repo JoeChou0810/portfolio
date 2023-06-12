@@ -1,14 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import FooterItem from './Items/footerItem';
 import '../Style/footer.scss';
 function Footer() {
-  const location = useLocation();
   const [selected, setSelected] = useState(null);
 
   const toggle = (i) => {
-    if (selected == i) {
+    if (selected === i) {
       return setSelected(null);
     }
     setSelected(i);
@@ -16,7 +14,7 @@ function Footer() {
 
   return (
     <div className="wrapper">
-      <div className="accordion">
+      <div className="accordion d-lg-none">
         {FooterItem.map((item, i) => {
           return (
             <div key={i} className="item">
@@ -33,6 +31,18 @@ function Footer() {
                 {item.content}
               </div>
             </div>
+          );
+        })}
+      </div>
+      <div className="footer d-none d-lg-flex justify-content-between">
+        {FooterItem.map((item, i) => {
+          return (
+            <ul key={i} className="list-unstyled row">
+              <li>{item.title}</li>
+              <li>{item.title}</li>
+              <li>{item.title}</li>
+              <li>{item.title}</li>
+            </ul>
           );
         })}
       </div>

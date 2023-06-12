@@ -27,7 +27,6 @@ function Login() {
           withCredentials: true,
         }
       );
-
       alert(response.data.msg);
       navigate('/user');
     } catch (err) {
