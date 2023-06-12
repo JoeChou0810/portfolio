@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import { Alert } from 'antd';
 import axios from 'axios';
 import InputItem from './Items/inputItem';
 import '../Style/global.scss';
@@ -27,7 +28,6 @@ function Login() {
           withCredentials: true,
         }
       );
-
       alert(response.data.msg);
       navigate('/user');
     } catch (err) {
