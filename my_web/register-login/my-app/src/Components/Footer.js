@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import FooterItem from './Items/footerItem';
 import '../Style/footer.scss';
+import { Link } from 'react-router-dom';
 function Footer() {
   const [selected, setSelected] = useState(null);
 
@@ -34,17 +35,28 @@ function Footer() {
           );
         })}
       </div>
-      <div className="footer d-none d-lg-flex justify-content-between">
+      <div className="footer d-none d-lg-flex row justify-content-center">
         {FooterItem.map((item, i) => {
           return (
-            <ul key={i} className="list-unstyled row">
-              <li>{item.title}</li>
-              <li>{item.title}</li>
-              <li>{item.title}</li>
-              <li>{item.title}</li>
-            </ul>
+            <div key={i} className="col-2 d-flex row text-start">
+              <h4 className="fw-bold mt-4">{item.title}</h4>
+              {item.subItem.map((subItem, i) => (
+                <Link
+                  to={subItem.to}
+                  key={i}
+                  className="mt-2 text-info text-decoration-none"
+                >
+                  {subItem.title}
+                </Link>
+              ))}
+            </div>
           );
         })}
+        <div className="mt-2 row justify-content-center align-items-center">
+          <div className="col">
+            <p>&copy; 2023 Joe Company. All rights reserved.</p>
+          </div>
+        </div>
       </div>
     </div>
   );

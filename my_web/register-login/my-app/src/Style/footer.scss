@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   background-color: #ced4da;
-  border-top: 2px solid #00afcc;
+  // border-top: 2px solid #00afcc;
   @include mobile() {
     width: auto;
     height: auto;
@@ -35,7 +35,7 @@
       padding: 10px 20px;
 
       .title {
-        color: #85662b;
+        color: #746883;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -59,20 +59,15 @@
     }
   }
   .footer {
-    width: auto;
+    width: 100%;
     @include mobile() {
       width: auto;
     }
-    height: 260px;
+    background-color: #ced4da;
+    height: 31vh;
     text-align: center;
-    ul {
-      width: 260px;
-      margin: 10px 5px 0 5px;
-    }
-    ul li {
-      text-align: center;
-      padding: 15px 0 0 0;
-      border-bottom: 2px solid black;
-    }
+    color: #746883;
+    text-shadow: -1px -1px 0 #ced4da, 1px -1px 0 #ced4da, -1px 1px 0 #ced4da,
+      1px 1px 0 #ced4da;
   }
 }
