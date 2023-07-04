@@ -25,7 +25,7 @@ function Footer() {
                   toggle(i);
                 }}
               >
-                <h2>{item.title}</h2>
+                <h2 className="fw-bold">{item.title}</h2>
                 <span>{selected === i ? '-' : '+'}</span>
               </div>
               <div className={selected === i ? 'content show' : 'content'}>
